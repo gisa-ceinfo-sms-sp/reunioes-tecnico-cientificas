@@ -3,368 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encontros Técnico-Científicos do NGISA - CEInfo | SMS-SP</title>
+    <title>Encontro Técnico-Científico GISA - CEInfo | SMS-SP</title>
     
-    <!-- Favicon inserido -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gisa-ceinfo-sms-sp/dados/refs/heads/main/Brasao_PMSP_reduzido_favicon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Fontes Institucionais -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
         :root {
-            --primary-color: #004a80; /* Azul Institucional SP */
-            --secondary-color: #009b3a; /* Verde SUS / SP */
-            --accent-color: #f1f3f5;
-            --text-color: #333333;
-            --light-text: #ffffff;
-            --link-hover: #003355;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            --pmsp-blue: #004a80;
+            --pmsp-green: #009b3a;
+            --pmsp-dark: #222222;
+            --pmsp-light-bg: #f4f6f8;
         }
 
         body {
-            /* Fundo com malha cartesiana sutil remetendo à cartografia */
-            background-color: #f9fafc;
-            background-image: 
-                linear-gradient(rgba(0, 74, 128, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 74, 128, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--pmsp-light-bg);
+            color: #333333;
         }
 
-        header {
-            background: linear-gradient(135deg, rgba(0, 74, 128, 0.95), rgba(0, 51, 85, 0.95)), 
-                        url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 100 Q 25 50 50 100 T 100 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
-            background-size: cover, 100px 100px;
-            color: var(--light-text);
-            padding: 40px 20px 60px;
-            text-align: center;
-            border-bottom: 5px solid var(--secondary-color);
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--pmsp-blue);
         }
 
-        .logos-container {
-            margin-bottom: 30px;
-            background: white;
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .logos-container img {
-            height: 50px;
-            object-fit: contain;
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        header h2 {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
-        }
-
-        main {
-            max-width: 1000px;
-            margin: -30px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--secondary-color);
-            backdrop-filter: blur(10px);
-        }
-
-        .section-card h3 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-card p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            text-align: justify;
-        }
-
-        .section-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px dotted var(--primary-color);
-            transition: all 0.3s;
-        }
-
-        .section-card a:hover {
-            color: var(--link-hover);
-            border-bottom: 1px solid var(--link-hover);
-        }
-
-        .highlight-box {
-            background-color: var(--accent-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary-color);
-            position: relative;
-            overflow: hidden;
+        /* Barra de Acessibilidade Padrão Governo */
+        .topbar-acessibilidade {
+            background-color: #212529;
+            font-size: 0.85rem;
         }
         
-        /* Adicionando uma textura sutil topográfica no destaque */
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(0, 74, 128, 0.03) 21%, rgba(0, 74, 128, 0.03) 34%, transparent 35%, transparent);
-            background-size: 100px 100px;
-            opacity: 0.5;
-            pointer-events: none;
+        .topbar-acessibilidade a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .topbar-acessibilidade a:hover {
+            text-decoration: underline;
         }
 
-        .agenda {
-            list-style: none;
+        /* Header Institucional */
+        .header-institucional {
+            background-color: #ffffff;
+            border-bottom: 4px solid var(--pmsp-green);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .agenda li {
-            padding: 15px;
-            background: #ffffff;
-            margin-bottom: 10px;
-            border-radius: 5px;
+        .header-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Cards e Conteúdo */
+        .custom-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+        }
+
+        .card-destaque {
+            border-left: 5px solid var(--pmsp-blue);
+        }
+
+        .btn-confirmar {
+            background-color: var(--pmsp-green);
+            color: #fff;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 12px 30px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-confirmar:hover {
+            background-color: #007a2d;
+            color: #fff;
+        }
+
+        /* Linha do Tempo / Agenda */
+        .agenda-item {
             display: flex;
-            align-items: center;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .agenda-item:last-child {
+            border-bottom: none;
         }
 
-        .agenda .time {
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-right: 20px;
+        .agenda-time {
+            font-weight: 700;
+            color: var(--pmsp-green);
             min-width: 80px;
         }
 
-        .github-card {
-            background: #24292e;
-            color: white;
-            border-radius: 10px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 40px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-
-        .github-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .github-card a {
-            background: white;
-            color: #24292e;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .github-card a:hover {
-            background: #f1f3f5;
-        }
-
-        .cta-section {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .btn-confirm {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 155, 58, 0.3);
-            display: inline-block;
-        }
-
-        .btn-confirm:hover {
-            background-color: #007a2d;
-            color: white;
-        }
-
-        footer {
-            background-color: #333333;
-            color: #aaaaaa;
-            text-align: center;
-            padding: 40px 20px;
+        /* Rodapé Padrão Prefeitura SP */
+        .footer-pmsp {
+            background-color: var(--pmsp-dark);
+            color: #e0e0e0;
+            padding: 50px 0;
             margin-top: 50px;
-            border-top: 4px solid var(--primary-color);
+            border-top: 5px solid var(--pmsp-blue);
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 5px;
-            font-size: 0.9rem;
+        .footer-logo {
+            max-width: 180px;
+        }
+
+        .footer-sus-logo {
+            max-height: 38px;
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-sus-logo:hover {
+            opacity: 1;
+        }
+
+        .footer-pmsp h5 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-pmsp p {
+            line-height: 1.5;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-radius: 50%;
+            margin: 0 4px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--pmsp-green);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logos-container">
-            <!-- Logo oficial da Prefeitura de São Paulo -->
-            <img src="https://capital.sp.gov.br/documents/34276/25188012/logo_PrefSP__horizontal_fundo+claro+%281%29.png" alt="Logo Prefeitura de São Paulo">
+    <!-- Barra de Acessibilidade Superior -->
+    <div class="topbar-acessibilidade py-1">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-none d-md-block">
+                <a href="#conteudo-principal"><i class="fas fa-arrow-down me-1"></i> Ir para o conteúdo</a>
+            </div>
+            <div>
+                <a href="#"><i class="fas fa-adjust me-1"></i> Alto Contraste</a>
+                <a href="#"><i class="fas fa-font me-1"></i> A-</a>
+                <a href="#"><i class="fas fa-font me-1"></i> A+</a>
+            </div>
         </div>
-        <div class="header-content">
-            <h1>Encontros Técnico-Científicos - Abordagens espaciais voltadas à Saúde Pública</h1>
-            <h2>Plataforma de Apoio Institucional</h2>
-            
-            <div class="badges">
-                <span class="badge">SMS-SP</span>
-                <span class="badge">CEInfo</span>
-                <span class="badge">NGISA</span>
-                
+    </div>
+
+    <!-- Header Principal Institucional -->
+    <header class="header-institucional py-3 sticky-top">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <img src="https://capital.sp.gov.br/documents/34276/25188012/logo_PrefSP__horizontal_fundo+claro+%281%29.png" alt="Prefeitura da Cidade de São Paulo" height="50">
+            </a>
+            <div class="text-md-end text-center mt-3 mt-md-0">
+                <h1 class="header-title">Encontros Técnico-Científicos</h1>
+                <p class="header-subtitle">Plataforma de Apoio Institucional: NGISA | CEInfo</p>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section-card">
-            <h3>Sobre o Encontro</h3>
-            <p>Prezados técnicos da Secretaria Municipal da Saúde (SMS-SP),</p>
-            <p>É com satisfação que convidamos a todos para o próximo Encontro Técnico-Científico. Este evento é dedicado à discussão técnica, qualificação de bases de dados de saúde pública e integração de indicadores urbanos, ambientais e epidemiológicos.</p>
-            <p>O encontro visa fortalecer o compartilhamento de inovações, fluxos de trabalho com <em>spatial features</em> e georreferenciamento de eventos e estabelecimentos de saúde, subsidiando análises relevantes à compreensão do processo saúde-doença na cidade de São Paulo.</p>
-        </section>
-
-        <section class="section-card">
-            <h3>Atuação Institucional</h3>
-            <div class="highlight-box">
-                <p>No escopo da 
-                    <a href="https://prefeitura.sp.gov.br/web/saude/w/epidemiologia_e_informacao/19518" target="_blank" rel="noopener noreferrer">
-                        CEInfo (Coordenação de Epidemiologia e Informação)
-                    </a>, o 
-                    <a href="https://prefeitura.sp.gov.br/web/saude/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais" target="_blank" rel="noopener noreferrer">
-                        GISA - Núcleo de Geoprocessamento e Informação Socioambiental
-                    </a> 
-                    atua para organizar e divulgar informações demográficas e urbanas, além de indicadores sociais e ambientais e outras informações de interesse da SMS.
-                </p>
-            </div>
-            <p>Através da produção de mapas digitais e impressos, o núcleo oferece o suporte necessário para apoiar decisões estratégicas e a correta organização da rede de serviços e cuidados no Sistema Único de Saúde (SUS) da capital.</p>
-        </section>
-
-        <!-- SEÇÃO INSERIDA: Novembro de 2026 -->
-        <section class="section-card">
-            <h3>Próximo Encontro: Novembro / 2026</h3>
-            <div class="highlight-box" style="padding: 15px 20px;">
-                <p style="margin-bottom: 5px;"><strong>Data:</strong> <em style="color: #555;">A definir em breve</em></p>
-                <p style="margin-bottom: 0;"><strong>Conteúdo:</strong> <em style="color: #555;">A definir em breve</em></p>
-            </div>
-            <p>Fique atento às nossas atualizações. Em breve divulgaremos a programação detalhada, horários e os temas abordados para o nosso próximo encontro no mês de novembro de 2026.</p>
-        </section>
-
-        <section class="section-card">
-            <h3>Programação Preliminar (Exemplo)</h3>
-            <ul class="agenda">
-                <li>
-                    <span class="time">08:30</span>
-                    <span>Credenciamento e Café de Boas-Vindas</span>
-                </li>
-                <li>
-                    <span class="time">09:00</span>
-                    <span>Abertura: Inteligência geográfica e monitoramento em saúde na SMS-SP</span>
-                </li>
-                <li>
-                    <span class="time">10:15</span>
-                    <span>Painel: Integração de dados territoriais e indicadores sociodemográficos</span>
-                </li>
-                <li>
-                    <span class="time">14:00</span>
-                    <span>Workshop: Tecnologias e análise espacial aplicada às Áreas de Abrangência (UBS)</span>
-                </li>
-                <li>
-                    <span class="time">16:30</span>
-                    <span>Encerramento e Próximos Passos</span>
-                </li>
-            </ul>
-        </section>
-        
-        <!-- Seção do Repositório GitHub -->
-        <div class="github-card">
-            <div class="github-info">
-                <svg height="40" width="40" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-                <div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 3px;">Repositório Oficial do Encontro</h4>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Acesse os materiais, scripts e dados de apoio na plataforma GitHub.</p>
+    <!-- Conteúdo Principal -->
+    <main id="conteudo-principal" class="container my-5">
+        <div class="row">
+            <!-- Coluna Principal -->
+            <div class="col-lg-8">
+                
+                <div class="card custom-card card-destaque">
+                    <div class="card-body p-4">
+                        <h2 class="h4 mb-4"><i class="fas fa-info-circle me-2"></i> Sobre os Encontros</h2>
+                        <p>Prezados técnicos da Secretaria Municipal da Saúde (SMS-SP),</p>
+                        <p>É com satisfação que convidamos a todos para participarem dos Encontros Técnico-Científicos, uma série de eventos dedicados à discussão técnica, qualificação de bases de dados de saúde pública e integração de indicadores urbanos, ambientais e epidemiológicos.</p>
+                        <p class="mb-0">Os encontros visam o fortalecimento de espaços para compartilhamento de inovações, fluxos de trabalho com <em>spatial features</em> e georreferenciamento de eventos e estabelecimentos de saúde, subsidiando análises relevantes à compreensão do processo saúde-doença na cidade de São Paulo.</p>
+                    </div>
                 </div>
-            </div>
-            <a href="https://github.com/gisa-ceinfo-sms-sp/rtc-gisa-ceinfo-sms-sp" target="_blank" rel="noopener noreferrer">Acessar Repositório</a>
-        </div>
 
-        <div class="cta-section">
-            <a href="#" class="btn-confirm">Confirmar Presença</a>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Por favor, confirme sua participação para fins de organização e certificação.</p>
+                <div class="card custom-card">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4"><i class="fas fa-clock me-2"></i> Programação Preliminar (Exemplo)</h3>
+                        <div class="agenda-lista">
+                            <div class="agenda-item">
+                                <div class="agenda-time">08:30</div>
+                                <div>Credenciamento e Café de Boas-Vindas</div>
+                            </div>
+                            <div class="agenda-item">
+                                <div class="agenda-time">09:00</div>
+                                <div>Abertura: Inteligência geográfica e epidemiologia na SMS-SP</div>
+                            </div>
+
+<div class="agenda-item">
+                                <div class="agenda-time">09:30</div>
+                                <div> Painel 1: Abordagens espaciais e SIG
+<ul>
+    <li>geoprocessamento</li>
+    <li>cartografia e SRC</li>
+    <li>geocodificação de endereços</li>
+    <li>dados vetoriais, matriciais e/ou raster</li>
+    <li>operações espaciais</li>
+    <li>métricas de distância</li>
+    <li>mapas de fluxos</li>
+  </ul>                            </div>
+
+
+
+
+ </div>
+
+  <div class="agenda-item">
+                                <div class="agenda-time">10:30</div>
+                                <div>Painel: Dados territoriais e indicadores sociodemográficos segundo as Áreas de Abrangência de UBS</div>
+                            </div>
+
+
+
+   <div class="agenda-item">
+                                <div class="agenda-time">11:15</div>
+                                <div>Workshop: Tecnologias e rotinas automatizadas envolvendo a Infraestrutura de Dados Espaciais da SMS-SP</div>
+                            </div>
+
+
+
+
+ <div class="agenda-item" style="background-color: #d3d3d3">
+                                <div class="agenda-time">12:00</div>
+                                <div>Intervalo para almmoço </div>
+                            </div>
+
+
+
+
+
+<div class="agenda-item">
+  <div class="agenda-time">13:15</div>
+  <div>
+    <p>Painel 2: Análise espacial de pontos</p>
+    <ul>
+      <li>densidade de pontos</li>
+      <li>varredura espacial</li>
+    </ul>
+  </div>
+</div>
+
+<div class="agenda-item">
+  <div class="agenda-time">14:30</div>
+  <div>
+    <p>Painel 3: Análise espacial de polígonos</p>
+    <ul>
+      <li>estrutura espacial e estacionariedade</li>
+      <li>suavização espacial: taxas bayesianas empíricas (global e local)</li>
+      <li>correlação espacial: estatísticas de Moran</li>
+      <li>modelos totalmente bayesianos</li>
+    </ul>
+  </div>
+</div>
+
+
+
+                          
+                         
+                            <div class="agenda-item">
+                                <div class="agenda-time">16:00</div>
+                                <div>Encerramento e Próximos Passos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card custom-card text-bg-dark mb-4">
+                    <div class="card-body p-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                            <i class="fab fa-github fa-3x me-3"></i>
+                            <div>
+                                <h4 class="h5 mb-1 text-white">Repositório Oficial</h4>
+                                <p class="mb-0 text-white-50" style="font-size: 0.9rem;">Acesse materiais, scripts e dados de apoio no GitHub.</p>
+                            </div>
+                        </div>
+                        <a href="https://github.com/gisa-ceinfo-sms-sp/rtc-gisa-ceinfo-sms-sp" class="btn btn-light" target="_blank" rel="noopener noreferrer">Acessar Repositório</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Coluna Lateral -->
+            <div class="col-lg-4">
+                
+                <div class="card custom-card bg-white border-0 shadow-sm" style="border-top: 5px solid var(--pmsp-green) !important;">
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h5 text-muted text-uppercase mb-3">Próximo Encontro</h3>
+                        <div class="display-6 fw-bold text-primary mb-3" style="color: var(--pmsp-blue) !important;">Nov / 2026</div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-2"><i class="fas fa-calendar-alt text-secondary me-2"></i> <strong>Data:</strong> <em class="text-muted">A definir</em></li>
+                            <li><i class="fas fa-book-open text-secondary me-2"></i> <strong>Conteúdo:</strong> <em class="text-muted">A definir em breve</em></li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-confirmar">Confirmar Presença</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card custom-card bg-light border-0">
+                    <div class="card-body p-4">
+                        <h4 class="h6 text-uppercase fw-bold mb-3"><i class="fas fa-landmark me-2"></i> Atuação Institucional</h4>
+                        <p class="small text-muted mb-3">
+                            No escopo da <a href="https://prefeitura.sp.gov.br/web/saude/w/epidemiologia_e_informacao/19518" class="text-decoration-none fw-bold" target="_blank">CEInfo</a>, o <a href="https://prefeitura.sp.gov.br/web/saude/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais" class="text-decoration-none fw-bold" target="_blank">NGISA</a> atua para organizar e divulgar informações demográficas, urbanas e ambientais de interesse da SMS.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <span class="badge bg-secondary">CEInfo</span>
+                            <span class="badge bg-secondary">GISA</span>
+                            <span class="badge bg-secondary">SMS-SP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p><strong>GISA - Núcleo de Geoprocessamento e Informação Socioambiental</strong></p>
-        <p>CEInfo - Coordenação de Epidemiologia e Informação | Secretaria Municipal da Saúde (SMS-SP)</p>
-        <p>Prefeitura da Cidade de São Paulo</p>
-        <p>Contato: ceinfogeoprocessamento@prefeitura.sp.gov.br</p>
+    <!-- Rodapé Padrão PMSP -->
+    <footer class="footer-pmsp">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Coluna 1: Logo Prefeitura -->
+                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                    <img src="https://prefeitura.sp.gov.br/o/adaptive-media/image/25242441/Preview-1000x0/logo_PrefSP_sem+fundo_horizontal_branco_monocromático.png?t=1748437491987" alt="Prefeitura da Cidade de São Paulo" class="footer-logo">
+                </div>
+                
+                <!-- Coluna 2: Informações de Contato / Endereço -->
+                <div class="col-md-5 text-center text-md-start mb-4 mb-md-0">
+                    <h5 class="text-uppercase fw-bold mb-2">Prefeitura da Cidade de São Paulo</h5>
+                    <p class="mb-1"><strong>Secretaria Municipal da Saúde (SMS)</strong></p>
+                    <p class="mb-0 small">Rua Dr. Siqueira Campos, 176 - Liberdade - São Paulo – SP - CEP 01509-020</p>
+                    <p class="mb-0 small">Coordenação de Epidemiologia e Informação (CEInfo)</p>
+                    <p class="mb-0 mt-2 small"><i class="fas fa-envelope me-2"></i>ceinfogeoprocessamento@prefeitura.sp.gov.br</p>
+                </div>
+
+                <!-- Coluna 3: Redes Sociais e Logo do SUS -->
+                <div class="col-md-3 text-center text-md-end">
+                    <div class="social-links mb-3">
+                        <p class="mb-2 fw-bold text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Redes Sociais</p>
+                        <div>
+                            <a href="https://www.facebook.com/saudeprefsp" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/saudeprefsp" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/saudeprefsp" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/saudeprefsp" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Logo SUS inserido no canto inferior direito -->
+                    <div class="mt-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Logo_SUS.svg" alt="Sistema Único de Saúde - SUS" class="footer-sus-logo" title="Sistema Único de Saúde (SUS)">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4 pt-3" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <div class="col-12 text-center text-muted" style="font-size: 0.8rem;">
+                    &copy; 2026 - GISA - Núcleo de Geoprocessamento e Informação Socioambiental. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
     </footer>
 
-</body>
-</html>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- VLibras Widget Padrão PMSP -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 </html>
