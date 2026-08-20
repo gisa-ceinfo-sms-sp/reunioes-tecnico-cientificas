@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Encontro Técnico-Científico GISA - CEInfo | SMS-SP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004a80; /* Azul Institucional SP */
+            --secondary-color: #009b3a; /* Verde SUS / SP */
+            --accent-color: #f1f3f5;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --link-hover: #003355;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            /* Fundo com malha cartesiana sutil remetendo à cartografia */
+            background-color: #f9fafc;
+            background-image: 
+                linear-gradient(rgba(0, 74, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 74, 128, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(0, 74, 128, 0.95), rgba(0, 51, 85, 0.95)), 
+                        url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 100 Q 25 50 50 100 T 100 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+            background-size: cover, 100px 100px;
+            color: var(--light-text);
+            padding: 40px 20px 60px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .logos-container {
+            margin-bottom: 30px;
+            background: white;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logos-container img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-card h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-card p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .section-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .section-card a:hover {
+            color: var(--link-hover);
+            border-bottom: 1px solid var(--link-hover);
+        }
+
+        .highlight-box {
+            background-color: var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Adicionando uma textura sutil topográfica no destaque */
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(0, 74, 128, 0.03) 21%, rgba(0, 74, 128, 0.03) 34%, transparent 35%, transparent);
+            background-size: 100px 100px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .agenda {
+            list-style: none;
+        }
+
+        .agenda li {
+            padding: 15px;
+            background: #ffffff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .agenda .time {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-right: 20px;
+            min-width: 80px;
+        }
+
+        .github-card {
+            background: #24292e;
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 40px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .github-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .github-card a {
+            background: white;
+            color: #24292e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .github-card a:hover {
+            background: #f1f3f5;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .btn-confirm {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 155, 58, 0.3);
+            display: inline-block;
+        }
+
+        .btn-confirm:hover {
+            background-color: #007a2d;
+            color: white;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #aaaaaa;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        footer p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logos-container">
+            <!-- Logo oficial da Prefeitura de São Paulo -->
+            <img src="https://capital.sp.gov.br/documents/34276/25188012/logo_PrefSP__horizontal_fundo+claro+%281%29.png" alt="Logo Prefeitura de São Paulo">
+        </div>
+        <div class="header-content">
+            <h1>Encontro Técnico-Científico</h1>
+            <h2>Plataforma de Apoio Institucional</h2>
+            
+            <div class="badges">
+                <span class="badge">CEInfo</span>
+                <span class="badge">GISA</span>
+                <span class="badge">SMS-SP</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-card">
+            <h3>Sobre o Encontro</h3>
+            <p>Prezados técnicos da Secretaria Municipal da Saúde (SMS-SP),</p>
+            <p>É com satisfação que convidamos a todos para o próximo Encontro Técnico-Científico. Este evento é dedicado à discussão técnica, qualificação de bases de dados de saúde pública e integração de indicadores urbanos, ambientais e epidemiológicos.</p>
+            <p>O encontro visa fortalecer o compartilhamento de inovações, fluxos de trabalho com <em>spatial features</em> e georreferenciamento de eventos e estabelecimentos de saúde, subsidiando análises relevantes à compreensão do processo saúde-doença na cidade de São Paulo.</p>
+        </section>
+
+        <section class="section-card">
+            <h3>Atuação Institucional</h3>
+            <div class="highlight-box">
+                <p>No escopo da 
+                    <a href="https://prefeitura.sp.gov.br/web/saude/w/epidemiologia_e_informacao/19518" target="_blank" rel="noopener noreferrer">
+                        CEInfo (Coordenação de Epidemiologia e Informação)
+                    </a>, o 
+                    <a href="https://prefeitura.sp.gov.br/web/saude/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais" target="_blank" rel="noopener noreferrer">
+                        GISA - Núcleo de Geoprocessamento e Informação Socioambiental
+                    </a> 
+                    atua para organizar e divulgar informações demográficas e urbanas, além de indicadores sociais e ambientais e outras informações de interesse da SMS.
+                </p>
+            </div>
+            <p>Através da produção de mapas digitais e impressos, o núcleo oferece o suporte necessário para apoiar decisões estratégicas e a correta organização da rede de serviços e cuidados no Sistema Único de Saúde (SUS) da capital.</p>
+        </section>
+
+        <section class="section-card">
+            <h3>Programação Preliminar</h3>
+            <ul class="agenda">
+                <li>
+                    <span class="time">08:30</span>
+                    <span>Credenciamento e Café de Boas-Vindas</span>
+                </li>
+                <li>
+                    <span class="time">09:00</span>
+                    <span>Abertura: Inteligência geográfica e monitoramento em saúde na SMS-SP</span>
+                </li>
+                <li>
+                    <span class="time">10:15</span>
+                    <span>Painel: Integração de dados territoriais e indicadores sociodemográficos</span>
+                </li>
+                <li>
+                    <span class="time">14:00</span>
+                    <span>Workshop: Tecnologias e análise espacial aplicada às Áreas de Abrangência (UBS)</span>
+                </li>
+                <li>
+                    <span class="time">16:30</span>
+                    <span>Encerramento e Próximos Passos</span>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Seção do Repositório GitHub -->
+        <div class="github-card">
+            <div class="github-info">
+                <svg height="40" width="40" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                <div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 3px;">Repositório Oficial do Encontro</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Acesse os materiais, scripts e dados de apoio na plataforma GitHub.</p>
+                </div>
+            </div>
+            <a href="https://github.com/gisa-ceinfo-sms-sp/rtc-gisa-ceinfo-sms-sp" target="_blank" rel="noopener noreferrer">Acessar Repositório</a>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="btn-confirm">Confirmar Presença</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Por favor, confirme sua participação para fins de organização e certificação.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>GISA - Núcleo de Geoprocessamento e Informação Socioambiental</strong></p>
+        <p>CEInfo - Coordenação de Epidemiologia e Informação | Secretaria Municipal da Saúde (SMS-SP)</p>
+        <p>Prefeitura da Cidade de São Paulo</p>
+        <p>Contato: ceinfogeoprocessamento@prefeitura.sp.gov.br</p>
+    </footer>
+
+</body>
+</html>
