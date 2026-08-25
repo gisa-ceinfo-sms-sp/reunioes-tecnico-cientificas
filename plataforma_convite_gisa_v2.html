@@ -29,7 +29,20 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: var(--pmsp-light-bg);
+            
+            /* Fundo Tecnológico / Cartografia em Saúde */
+            background-color: #f8fafd;
+            background-image: 
+                /* Efeito Mapa de Calor / Clusters Espaciais (Epidemiologia) */
+                radial-gradient(circle at 15% 20%, rgba(0, 155, 58, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 74, 128, 0.06) 0%, transparent 50%),
+                /* Malha de Coordenadas Geográficas (Cartografia) */
+                linear-gradient(rgba(0, 74, 128, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 74, 128, 0.04) 1px, transparent 1px);
+            background-size: 100vw 100vh, 100vw 100vh, 40px 40px, 40px 40px;
+            background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+            background-position: center center;
+            
             color: #333333;
         }
 
@@ -74,12 +87,14 @@
             margin: 0;
         }
 
-        /* Cards e Conteúdo */
+        /* Cards e Conteúdo (Com efeito de vidro para destacar o fundo tecnológico) */
         .custom-card {
             border: none;
             border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
             margin-bottom: 25px;
+            background-color: rgba(255, 255, 255, 0.95); /* Leve transparência */
+            backdrop-filter: blur(10px); /* Efeito tech Glassmorphism */
         }
 
         .card-destaque {
@@ -229,77 +244,60 @@
                                 <div class="agenda-time">09:00</div>
                                 <div>Abertura: Inteligência geográfica e epidemiologia na SMS-SP</div>
                             </div>
-
-<div class="agenda-item">
+                            <div class="agenda-item">
                                 <div class="agenda-time">09:30</div>
                                 <div> Painel 1: Abordagens espaciais e SIG
-<ul>
-    <li>geoprocessamento</li>
-    <li>cartografia e SRC</li>
-    <li>geocodificação de endereços</li>
-    <li>dados vetoriais, matriciais e/ou raster</li>
-    <li>operações espaciais</li>
-    <li>métricas de distância</li>
-    <li>mapas de fluxos</li>
-  </ul>                            </div>
+                                    <ul>
+                                        <li>geoprocessamento</li>
+                                        <li>cartografia e SRC</li>
+                                        <li>geocodificação de endereços</li>
+                                        <li>dados vetoriais, matriciais e/ou raster</li>
+                                        <li>operações espaciais</li>
+                                        <li>métricas de distância</li>
+                                        <li>mapas de fluxos</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-
-
-
- </div>
-
-  <div class="agenda-item">
+                            <div class="agenda-item">
                                 <div class="agenda-time">10:30</div>
                                 <div>Painel: Dados territoriais e indicadores sociodemográficos segundo as Áreas de Abrangência de UBS</div>
                             </div>
 
-
-
-   <div class="agenda-item">
+                            <div class="agenda-item">
                                 <div class="agenda-time">11:15</div>
                                 <div>Workshop: Tecnologias e rotinas automatizadas envolvendo a Infraestrutura de Dados Espaciais da SMS-SP</div>
                             </div>
 
-
-
-
- <div class="agenda-item" style="background-color: #d3d3d3">
+                            <div class="agenda-item" style="background-color: rgba(211, 211, 211, 0.4); border-radius: 6px;">
                                 <div class="agenda-time">12:00</div>
-                                <div>Intervalo para almmoço </div>
+                                <div>Intervalo para almoço</div>
                             </div>
 
+                            <div class="agenda-item">
+                                <div class="agenda-time">13:15</div>
+                                <div>
+                                    <p class="mb-1 fw-bold">Painel 2: Análise espacial de pontos</p>
+                                    <ul class="mb-0">
+                                        <li>densidade de pontos</li>
+                                        <li>varredura espacial</li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                            <div class="agenda-item">
+                                <div class="agenda-time">14:30</div>
+                                <div>
+                                    <p class="mb-1 fw-bold">Painel 3: Análise espacial de polígonos</p>
+                                    <ul class="mb-0">
+                                        <li>estrutura espacial e estacionariedade</li>
+                                        <li>suavização espacial: taxas bayesianas empíricas (global e local)</li>
+                                        <li>correlação espacial: estatísticas de Moran</li>
+                                        <li>modelos totalmente bayesianos</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-
-
-<div class="agenda-item">
-  <div class="agenda-time">13:15</div>
-  <div>
-    <p>Painel 2: Análise espacial de pontos</p>
-    <ul>
-      <li>densidade de pontos</li>
-      <li>varredura espacial</li>
-    </ul>
-  </div>
-</div>
-
-<div class="agenda-item">
-  <div class="agenda-time">14:30</div>
-  <div>
-    <p>Painel 3: Análise espacial de polígonos</p>
-    <ul>
-      <li>estrutura espacial e estacionariedade</li>
-      <li>suavização espacial: taxas bayesianas empíricas (global e local)</li>
-      <li>correlação espacial: estatísticas de Moran</li>
-      <li>modelos totalmente bayesianos</li>
-    </ul>
-  </div>
-</div>
-
-
-
-                          
-                         
                             <div class="agenda-item">
                                 <div class="agenda-time">16:00</div>
                                 <div>Encerramento e Próximos Passos</div>
@@ -308,10 +306,10 @@
                     </div>
                 </div>
 
-                <div class="card custom-card text-bg-dark mb-4">
+                <div class="card custom-card text-bg-dark mb-4" style="background-color: #212529 !important;">
                     <div class="card-body p-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <div class="d-flex align-items-center mb-3 mb-md-0">
-                            <i class="fab fa-github fa-3x me-3"></i>
+                            <i class="fab fa-github fa-3x me-3 text-white"></i>
                             <div>
                                 <h4 class="h5 mb-1 text-white">Repositório Oficial</h4>
                                 <p class="mb-0 text-white-50" style="font-size: 0.9rem;">Acesse materiais, scripts e dados de apoio no GitHub.</p>
@@ -326,10 +324,10 @@
             <!-- Coluna Lateral -->
             <div class="col-lg-4">
                 
-                <div class="card custom-card bg-white border-0 shadow-sm" style="border-top: 5px solid var(--pmsp-green) !important;">
+                <div class="card custom-card bg-white shadow-sm" style="border-top: 5px solid var(--pmsp-green) !important;">
                     <div class="card-body p-4 text-center">
                         <h3 class="h5 text-muted text-uppercase mb-3">Próximo Encontro</h3>
-                        <div class="display-6 fw-bold text-primary mb-3" style="color: var(--pmsp-blue) !important;">Nov / 2026</div>
+                        <div class="display-6 fw-bold mb-3" style="color: var(--pmsp-blue);">Nov / 2026</div>
                         <ul class="list-unstyled text-start mb-4">
                             <li class="mb-2"><i class="fas fa-calendar-alt text-secondary me-2"></i> <strong>Data:</strong> <em class="text-muted">A definir</em></li>
                             <li><i class="fas fa-book-open text-secondary me-2"></i> <strong>Conteúdo:</strong> <em class="text-muted">A definir em breve</em></li>
@@ -340,7 +338,7 @@
                     </div>
                 </div>
 
-                <div class="card custom-card bg-light border-0">
+                <div class="card custom-card bg-light">
                     <div class="card-body p-4">
                         <h4 class="h6 text-uppercase fw-bold mb-3"><i class="fas fa-landmark me-2"></i> Atuação Institucional</h4>
                         <p class="small text-muted mb-3">
